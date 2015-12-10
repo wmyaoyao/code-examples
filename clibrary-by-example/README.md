@@ -7,14 +7,14 @@ $staticlib_demo.sh
 ```
 
 ### Shared libraries
-``bash
+```bash
 $sharedlib_demo.sh
 ```
 
 ### Dynamically loaded libraries
 Dynamically loaded (DL) libraries are libraries that are loaded at times other than during the startup of a program. They're particularly useful for implementing plugins or modules, because they permit waiting to load the plugin until it's needed.
 
-``bash
+```bash
 $sharedlib_demo.sh
 $dynamiclib_demo.sh
 ```

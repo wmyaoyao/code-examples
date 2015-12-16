@@ -8,4 +8,5 @@ class A {
 class B: public A {
     public:
         void test();
+        void funcB();
 };

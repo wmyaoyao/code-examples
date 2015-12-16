@@ -10,3 +10,7 @@ void A::test() {
 void B::test() {
     cout << "b" << endl;
 }
+
+void B::funcB() {
+    cout << "funB" << endl;
+}

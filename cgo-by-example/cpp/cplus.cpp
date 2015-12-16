@@ -4,11 +4,11 @@
 using namespace std;
 
 void A::test() {
-    cout << "a" << endl;
+    cout << "From A.test()" << endl;
 }
 
 void B::test() {
-    cout << "b" << endl;
+    cout << "From B.test()" << endl;
 }
 
 void B::funcB() {

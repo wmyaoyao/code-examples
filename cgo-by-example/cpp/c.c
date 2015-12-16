@@ -8,7 +8,7 @@ void func1() {
 }
 
 void func2() {
-    // printf("Hello, library world.\n");
+    printf("Hello, I'm func2() \n");
     // Test Obj B
     B *b = new B();
     b->funcB();

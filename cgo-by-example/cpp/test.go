@@ -10,8 +10,8 @@ import (
 import "C"
 
 func main() {
-	fmt.Println("calling C wrappers")
+	fmt.Println("# Calling C wrappers")
 	C.func1()
 	C.func2()
-	fmt.Println("Bye")
+	fmt.Println("# Bye")
 }

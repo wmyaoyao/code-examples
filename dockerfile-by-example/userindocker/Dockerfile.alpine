@@ -1,0 +1,17 @@
+FROM alpine:3.1
+MAINTAINER wmyaoyao <wmyaoyao@gmail.com>
+RUN apk add --update bash sudo
+
+# To add more packages:
+# e.g.,
+# RUN apk add --update build-base
+# RUN apk add --update mysql-client
+
+RUN rm -rf /var/cache/apk/*
+
+# Add an user with sudo access right
+RUN adduser -S devuser
+RUN echo "devuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers 
+USER devuser
+
+WORKDIR /home/devuser

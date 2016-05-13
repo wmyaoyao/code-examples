@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app1:
+#build sucks. we'll use our own build script
+#    build:
+#     context: ./
+#      dockerfile: Dockerfile.app1
+    image: local-repo:5566/test/app1:latest
+    container_name: myapp1
+    command: top
+    depends_on:
+      - redis
+#    env_file: local.env
+    volumes:
+      - ./vol:/data
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"

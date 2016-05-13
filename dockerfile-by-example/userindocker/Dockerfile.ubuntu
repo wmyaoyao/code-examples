@@ -1,21 +1,8 @@
-# MAINTAINER yikaus <yikaus@gmail.com>
-
-FROM alpine:3.1
-RUN apk add --update bash sudo \
-   && rm -rf /var/cache/apk/*
-RUN adduser -S devuser
-
-# RUN apk add build-base
-# RUN apk add --update mysql-client && rm -rf /var/cache/apk/*
-
-
-
-# -----------------
-# FROM ubuntu:14.04
+FROM ubuntu:14.04
+MAINTAINER wmyaoyao <wmyaoyao@gmail.com>
 
 # Add an user with sudo access right
-# RUN useradd -ms /bin/bash devuser
-
+RUN useradd -ms /bin/bash devuser
 RUN echo "devuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers 
 USER devuser
 

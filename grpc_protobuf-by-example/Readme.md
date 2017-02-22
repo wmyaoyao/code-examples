@@ -10,3 +10,9 @@
 ## Reference:
 - http://www.grpc.io/docs/
 - https://coreos.com/blog/grpc-protobufs-swagger.html
+- https://github.com/husobee/grpc_v_rest
+
+## Q&A
+- Why gRPC?
+- Why gRPC + Protobuf?
+- is the gRPC framework robust enough (qps?)

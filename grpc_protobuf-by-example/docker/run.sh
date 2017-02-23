@@ -14,8 +14,9 @@ globalConf="
 #  --restart always \
 # <EDIT_ME>
 moduleConf="
-  -p 9000:9000\
+  --net=host \
 "
+#  -p 9000:9000\
 # </EDIT_ME>
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -23,7 +24,9 @@ docker rm -f -v $CONTAINER
 cmd="docker run -it --rm --name $CONTAINER \
   $globalConf \
   $moduleConf \
-  -v "$ROOT/..":/go/src/app \
+  -v $ROOT/../cache/src:/go/src \
+  -v $ROOT/../cache/bin:/go/bin \
+  -v $ROOT/../app:/go/src/app \
   $DOCKER_IMAGE \
 "
 echo $cmd

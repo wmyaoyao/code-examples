@@ -6,6 +6,7 @@ CNAME=web1
 docker rm -fv $CNAME
 docker run -d --name $CNAME \
   -v $DIR/www1:/usr/share/nginx/html:ro \
+  -v $DIR/nginx/conf.d:/etc/nginx/conf.d:ro \
   -p 10081:80 \
   nginx:alpine
 
@@ -13,6 +14,7 @@ CNAME=web2
 docker rm -fv $CNAME
 docker run -d --name $CNAME \
   -v $DIR/www2:/usr/share/nginx/html:ro \
+  -v $DIR/nginx/conf.d:/etc/nginx/conf.d:ro \
   -p 10082:80 \
   nginx:alpine
 

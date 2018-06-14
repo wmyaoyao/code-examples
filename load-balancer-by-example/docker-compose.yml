@@ -1,0 +1,28 @@
+version: '2.1'
+services:
+  web1:
+    image: nginx:alpine
+    ports:
+      - "10081:80"
+    volumes:
+      - ./www1:/usr/share/nginx/html:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+
+  web2:
+    image: nginx:alpine
+    ports:
+      - "10082:80"
+    volumes:
+      - ./www2:/usr/share/nginx/html:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+
+  haproxy:
+    image: haproxy:1.6-alpine
+    ports:
+      - "10080:10080"
+      - "9527:9527"
+    depends_on:
+      - "web1"
+      - "web2"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro

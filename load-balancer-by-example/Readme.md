@@ -1,4 +1,4 @@
-# Haproxy Example
+# Haproxy dispatch by UID Example
 
 In this example, we'll setup two web servers and one haproxy.
 
@@ -8,7 +8,17 @@ In this example, we'll setup two web servers and one haproxy.
         |-------|--- web2:10082
 ```
 
-Dispatch Rule:
+## Setup:
+
+```
+# With docker-compose
+docker-compose up
+
+# Without docker-compose
+setup.sh
+```
+
+## Dispatch Rule:
 1. if header X-Lb-Uid exists -> dispatch by X-Lb-UserID
 ```
   curl -H "X-Lb-Uid: 12345" localhost:10080

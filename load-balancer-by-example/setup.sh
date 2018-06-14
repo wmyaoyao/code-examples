@@ -19,7 +19,8 @@ docker run -d --name $CNAME \
 CNAME=lb-example-proxy
 docker rm -fv $CNAME
 docker run -d --name $CNAME \
-      --net=host \
+      -p 10080:10080 \
+      -p 9527:9527 \
         -v $DIR/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro \
           haproxy:1.6-alpine
 

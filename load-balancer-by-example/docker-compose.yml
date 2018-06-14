@@ -1,21 +1,22 @@
 version: '2.1'
 services:
   web1:
-    image: nginx:alpine
+    build:
+      context: ./fakeserver
+      dockerfile: Dockerfile
+    image: wmyaoyao.pw/fakeserver:latest
     ports:
       - "10081:80"
-    volumes:
-      - ./www1:/usr/share/nginx/html:ro
-      - ./nginx/conf.d:/etc/nginx/conf.d:ro
-
+    environment:
+      - PORT=80
+      - HOSTNAME=web1
   web2:
-    image: nginx:alpine
+    image: wmyaoyao.pw/fakeserver:latest
     ports:
       - "10082:80"
-    volumes:
-      - ./www2:/usr/share/nginx/html:ro
-      - ./nginx/conf.d:/etc/nginx/conf.d:ro
-
+    environment:
+      - PORT=80
+      - HOSTNAME=web2
   haproxy:
     image: haproxy:1.6-alpine
     ports:
